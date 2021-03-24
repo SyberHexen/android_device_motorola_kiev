@@ -2,7 +2,8 @@ on early-init && property:ro.bootmode=mot-factory
    insmod /vendor/lib/modules/moto_f_usbnet.ko
 
 on early-init
-   exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules mmi_annotate mmi_info tzlog_dump watchdog_cpu_ctx mmi_sys_temp qpnp-power-on-mmi slg5bm43670.ko qpnp-smbcharger-mmi.ko
+   exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules mmi_annotate mmi_info tzlog_dump watchdog_cpu_ctx mmi_sys_temp qpnp-power-on-mmi wl2864c.ko qpnp-smbcharger-mmi.ko
+   exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules mcDrvModule
 
 on mmi-priority
    # Only high priority MMI DLKMs loaded here
@@ -10,27 +11,23 @@ on mmi-priority
    # and needs to load first. Touchscreen might need extra time
    # to perform firmware update if necessary
    setprop vendor.mmi_init.stage priority
-   exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules aw8695.ko
-   exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules sensors_class.ko sx933x_sar.ko mmi_relay.ko touchscreen_mmi.ko
+   exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules sensors_class.ko sx933x_sar.ko touchscreen_mmi.ko
+
+on mmi-priority && property:ro.vendor.hw.radio=JAPAN
+   exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules aw8624.ko
 
 on fs
    # Majority of MMI DLKMs should be in this group
+   insmod /vendor/lib/modules/aw882xx_k419.ko
    setprop vendor.mmi_init.stage common
-   exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules stmvl53l1.ko cci_intf.ko watchdogtest cirrus_irq-madera arizona-ldo1 arizona-micsupp gpio-madera madera-pinctrl cirrus_cs35l41 cirrus_cs35l41-spi cirrus_cs47l35 cirrus_madera-core cirrus_madera extcon-madera cirrus_wm_adsp
-   exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules st21nfc.ko goodix_v1430_mmi.ko goodix_v1430_update_mmi.ko goodix_v1430_ts_tools_mmi.ko goodix_fod_mmi.ko sec_mmi.ko synaptics_i2c.ko synaptics_core_module.ko synaptics_device.ko synaptics_diagnostics.ko synaptics_recovery.ko synaptics_reflash.ko synaptics_testing.ko
+   exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules cci_intf.ko watchdogtest
+   exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules focaltech_0flash_mmi.ko
    setprop vendor.mmi_init.modules_loaded 1
+
+   insmod /vendor/lib/modules/fm_ctrl.ko
 
 on fs && property:ro.build.type=userdebug
    insmod /vendor/lib/modules/mmi_sigprint.ko
-
-on post-fs
-   # Change ownership and permision of st nfc device
-   wait_for_prop vendor.mmi_init.modules_loaded 1
-   chown nfc nfc /dev/st21nfc
-   chmod 0660 /dev/st21nfc
-
-on property:ro.vendor.hw.nfc=true && property:persist.vendor.radio.multisim.config=*
-   start vendor.stflashtool
 
 on post-fs-data
    # Load DLKM that can afford being loaded later
@@ -39,23 +36,20 @@ on post-fs-data
    #wait_for_prop init.svc.vendor.mmi_modules stopped
    setprop vendor.mmi_init.stage complete
 
-on early-boot
-   # Goodix fingerprint
-   chown system system /dev/goodix_fp
-   chmod 0664 /dev/goodix_fp
-   mkdir /data/vendor/gf_data 0770 system system
-   mkdir /mnt/vendor/persist/goodix 0770 system system
-
 on boot
    # change permission for capsensor
    chown system system /sys/class/capsense/reset
    chown system system /sys/class/capsense/int_state
-   chown system system /sys/class/capsense/headset
    # Change ownership for capsensor
    chown root input /sys/class/sensors/Moto\ CapSense\ Ch0/enable
    chown root input /sys/class/sensors/Moto\ CapSense\ Ch0/poll_delay
    chown root input /sys/class/sensors/Moto\ CapSense\ Ch1/enable
    chown root input /sys/class/sensors/Moto\ CapSense\ Ch1/poll_delay
+   chown root input /sys/class/sensors/Moto\ CapSense\ Ch2/enable
+   chown root input /sys/class/sensors/Moto\ CapSense\ Ch2/poll_delay
+   # Change ownership for touch gesture
+   chown root input /sys/class/sensors/dt-gesture/enable
+   chown root input /sys/class/sensors/dt-gesture/poll_delay
    # Touch grip suppression control
    chown system system /sys/class/touchscreen/primary/suppression
    chmod 0660 /sys/class/touchscreen/primary/suppression
@@ -65,6 +59,8 @@ on boot
    chmod 0660 /sys/class/touchscreen/primary/hold_distance
    chown system system /sys/class/touchscreen/primary/gs_distance
    chmod 0660 /sys/class/touchscreen/primary/gs_distance
+   # Change ownership and permission for fm control intf
+   chown system system /sys/devices/platform/soc/soc:fm_wcn39x0/elna_en
 
 service vendor.mmi_modules /vendor/bin/init.mmi.modules.sh
     user root
@@ -80,17 +76,15 @@ service capsense_reset /system/vendor/bin/capsense_reset
 on property:sys.boot_completed=1
     start capsense_reset
 
-service vendor.motpsd /vendor/bin/motpsd
-    class late_start
-    user root
-
-service vendor.vl53l1_daemon /vendor/bin/vl53l1_daemon
-    class late_start
-    user root
-    group root
-    socket vl53l1_daemon stream 660 root system
-
-service vendor.mmi-laser-sh /vendor/bin/init.mmi.laser.sh
+service vendor.mmi-charge-sh /vendor/bin/init.mmi.charge.sh
     class core
     user root
     oneshot
+    disabled
+
+on post-fs
+    start vendor.mmi-charge-sh
+
+on moto-charger
+    enable vendor.qti-chg-policy-sh
+    start vendor.qti-chg-policy-sh
