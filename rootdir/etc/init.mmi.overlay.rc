@@ -82,6 +82,19 @@ service vendor.mmi-charge-sh /vendor/bin/init.mmi.charge.sh
     oneshot
     disabled
 
+service vendor.ident-fps-sh /vendor/bin/init.oem.fingerprint.sh
+    class core
+    user root
+    group drmrpc system
+    oneshot
+    disabled
+
+service vendor.hal-fps-sh /vendor/bin/init.oem.fingerprint2.sh
+    class late_start
+    user root
+    group system
+    oneshot
+
 on post-fs
     start vendor.mmi-charge-sh
 
