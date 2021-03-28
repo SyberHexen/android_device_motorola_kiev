@@ -201,6 +201,15 @@ vendor/lib64/vendor.egistec.hardware.fingerprint@2.0.so
 -product/priv-app/HotwordEnrollmentXGoogleHEXAGON/HotwordEnrollmentXGoogleHEXAGON.apk
 -product/priv-app/HotwordEnrollmentOKGoogleHEXAGON/HotwordEnrollmentOKGoogleHEXAGON.apk
 
+# IPA Firmware
+vendor/firmware/lagoon_ipa_fws.b00
+vendor/firmware/lagoon_ipa_fws.b01
+vendor/firmware/lagoon_ipa_fws.b02
+vendor/firmware/lagoon_ipa_fws.b03
+vendor/firmware/lagoon_ipa_fws.b04
+vendor/firmware/lagoon_ipa_fws.elf
+vendor/firmware/lagoon_ipa_fws.mdt
+
 # Listen
 vendor/lib/hw/sound_trigger.primary.lito.so
 vendor/lib64/hw/sound_trigger.primary.lito.so
