@@ -64,6 +64,10 @@ PRODUCT_PACKAGES += \
     init.mmi.charge.sh \
     init.mmi.overlay.rc
 
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.lights-service.kiev
+
 # NFC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
