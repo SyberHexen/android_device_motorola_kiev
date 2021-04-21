@@ -10,9 +10,20 @@ vendor/etc/acdbdata/Hdmi_cal.acdb
 vendor/etc/acdbdata/Headset_cal.acdb
 vendor/etc/acdbdata/Speaker_cal.acdb
 
-# Audio firmware
+# Audio - Firmware
 vendor/firmware/aw882xx_afe_params.bin
 vendor/firmware/aw882xx_spk_reg.bin
+
+# Audio - Prebuilt
+vendor/lib/hw/audio.primary.lito.so
+vendor/lib/rfsa/adsp/bc360_copp.so
+vendor/lib/vndk/libtinyalsa.so
+vendor/lib/libmotaudioutils.so
+vendor/lib/libtinycompress_vendor.so
+
+# Audio - Soundfx
+vendor/lib/soundfx/libmmieffectswrapper.so
+vendor/lib/soundfx/libspeakerbundle.so
 
 # Camera
 vendor/etc/camera/aec_golden_wide.bin
