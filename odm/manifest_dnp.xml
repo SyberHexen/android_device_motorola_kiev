@@ -25,16 +25,16 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
-<manifest version="1.0" type="device">
+<manifest version="2.0" type="device">
     <hal format="hidl" override="true">
-       <name>android.hardware.secure_element</name>
-       <transport>hwbinder</transport>
-       <version>1.0</version>
-       <interface>
-           <name>ISecureElement</name>
-           <instance>SIM1</instance>
-           <instance>SIM2</instance>
-       </interface>
+        <name>android.hardware.secure_element</name>
+        <transport>hwbinder</transport>
+        <version>1.2</version>
+        <interface>
+            <name>ISecureElement</name>
+            <instance>SIM1</instance>
+        </interface>
+        <fqname>@1.2::ISecureElement/SIM1</fqname>
     </hal>
     <!-- NFC start -->
     <hal format="hidl" override="true">
@@ -64,5 +64,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IBiometricsFingerprintEts</name>
             <instance>default</instance>
         </interface>
+        <fqname>@2.0::IBiometricsFingerprintEts/default</fqname>
     </hal>
 </manifest>

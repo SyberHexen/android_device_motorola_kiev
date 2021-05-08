@@ -25,15 +25,16 @@ WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
 OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
 IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
-<manifest version="1.0" type="device">
+<manifest version="2.0" type="device">
     <hal format="hidl" override="true">
-       <name>android.hardware.secure_element</name>
-       <transport>hwbinder</transport>
-       <version>1.0</version>
-       <interface>
-           <name>ISecureElement</name>
-           <instance>SIM1</instance>
-       </interface>
+        <name>android.hardware.secure_element</name>
+        <transport>hwbinder</transport>
+        <version>1.2</version>
+        <interface>
+            <name>ISecureElement</name>
+            <instance>SIM1</instance>
+        </interface>
+        <fqname>@1.2::ISecureElement/SIM1</fqname>
     </hal>
     <!-- NFC start -->
     <hal format="hidl" override="true">
@@ -56,23 +57,25 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
         <!-- no <version> tag -->
     </hal>
     <hal format="hidl" override="true">
-       <name>android.hardware.radio</name>
-       <transport>hwbinder</transport>
-       <version>1.4</version>
-       <interface>
-           <name>IRadio</name>
-           <instance>slot1</instance>
-       </interface>
-       <fqname>@1.2::ISap/slot1</fqname>
+        <name>android.hardware.radio</name>
+        <transport>hwbinder</transport>
+        <version>1.4</version>
+        <interface>
+            <name>IRadio</name>
+            <instance>slot1</instance>
+        </interface>
+        <fqname>@1.2::ISap/slot1</fqname>
+        <fqname>@1.4::IRadio/slot1</fqname>
     </hal>
     <hal format="hidl" override="true">
-       <name>vendor.qti.hardware.radio.am</name>
+        <name>vendor.qti.hardware.radio.am</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
         <interface>
             <name>IQcRilAudio</name>
             <instance>slot1</instance>
         </interface>
+        <fqname>@1.0::IQcRilAudio/slot1</fqname>
     </hal>
      <!-- RIL UIM REMOTE CLIENT -->
     <hal format="hidl" override="true">
@@ -83,6 +86,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IUimRemoteServiceClient</name>
             <instance>uimRemoteClient0</instance>
         </interface>
+        <fqname>@1.0::IUimRemoteServiceClient/uimRemoteClient0</fqname>
     </hal>
     <!-- RIL UIM REMOTE SERVER -->
     <hal format="hidl" override="true">
@@ -93,6 +97,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IUimRemoteServiceServer</name>
             <instance>uimRemoteServer0</instance>
         </interface>
+        <fqname>@1.0::IUimRemoteServiceServer/uimRemoteServer0</fqname>
     </hal>
     <!-- RIL UIM LPA -->
     <hal format="hidl" override="true">
@@ -103,6 +108,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IUimLpa</name>
             <instance>UimLpa0</instance>
         </interface>
+        <fqname>@1.0::IUimLpa/UimLpa0</fqname>
     </hal>
     <!-- RIL UIM -->
     <hal format="hidl" override="true">
@@ -113,6 +119,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IUim</name>
             <instance>Uim0</instance>
         </interface>
+        <fqname>@1.2::IUim/Uim0</fqname>
     </hal>
     <hal format="hidl" override="true">
         <name>vendor.qti.hardware.radio.qtiradio</name>
@@ -123,24 +130,28 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IQtiRadio</name>
             <instance>slot1</instance>
         </interface>
+        <fqname>@1.0::IQtiRadio/slot1</fqname>
+        <fqname>@2.4::IQtiRadio/slot1</fqname>
     </hal>
     <hal format="hidl" override="true">
         <name>vendor.qti.hardware.radio.ims</name>
-           <transport>hwbinder</transport>
-           <version>1.6</version>
-           <interface>
-               <name>IImsRadio</name>
-               <instance>imsradio0</instance>
-           </interface>
+        <transport>hwbinder</transport>
+        <version>1.6</version>
+        <interface>
+            <name>IImsRadio</name>
+            <instance>imsradio0</instance>
+        </interface>
+        <fqname>@1.6::IImsRadio/imsradio0</fqname>
     </hal>
     <hal format="hidl" override="true">
         <name>vendor.qti.hardware.radio.qcrilhook</name>
-           <transport>hwbinder</transport>
-           <version>1.0</version>
-           <interface>
-               <name>IQtiOemHook</name>
-               <instance>oemhook0</instance>
-           </interface>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IQtiOemHook</name>
+            <instance>oemhook0</instance>
+        </interface>
+        <fqname>@1.0::IQtiOemHook/oemhook0</fqname>
     </hal>
     <hal format="hidl" override="true">
         <name>vendor.qti.hardware.data.connection</name>
@@ -150,6 +161,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IDataConnection</name>
             <instance>slot1</instance>
         </interface>
+        <fqname>@1.1::IDataConnection/slot1</fqname>
     </hal>
     <hal format="hidl" override="true">
         <name>vendor.qti.hardware.data.iwlan</name>
@@ -159,6 +171,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IIWlan</name>
             <instance>slot1</instance>
         </interface>
+        <fqname>@1.0::IIWlan/slot1</fqname>
     </hal>
     <hal format="hidl" override="true">
         <name>vendor.egistec.hardware.fingerprint</name>
@@ -168,5 +181,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <name>IBiometricsFingerprintEts</name>
             <instance>default</instance>
         </interface>
+        <fqname>@2.0::IBiometricsFingerprintEts/default</fqname>
     </hal>
 </manifest>
