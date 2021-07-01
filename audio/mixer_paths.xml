@@ -1535,8 +1535,8 @@
     </path>
 
     <path name="handset-mic">
-        <path name="amic1" />
-        <ctl name="ADC1 Volume" value="8" />
+        <path name="amic3" />
+        <ctl name="ADC2 Volume" value="8" />
         <ctl name="TX_DEC2 Volume" value="84" />
     </path>
 

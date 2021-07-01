@@ -48,7 +48,7 @@
         <!-- Param used to match and obtain device backend index -->
         <param backend_dai_name="VA_CDC_DMA_TX_0" />
         <!-- Param used to indicate if SVA has dedicated SLIM ports -->
-        <param dedicated_sva_path="false" />
+        <param dedicated_sva_path="true" />
         <param dedicated_headset_path="false" />
         <param platform_lpi_enable="true" />
         <param enable_debug_dumps="false" />
@@ -147,11 +147,11 @@
             <param capture_device="HANDSET" />
             <!-- adm_cfg_profile should match with the one defined under adm_config -->
             <!-- Set it to NONE if LSM directly connects to AFE -->
-            <param adm_cfg_profile="FFECNS" />
+            <param adm_cfg_profile="DEFAULT" />
             <!-- fluence_type: "FLUENCE_MIC", "FLUENCE_DMIC", "FLUENCE_TMIC"   -->
             <!-- "FLUENCE_QMIC". Param value is valid when adm_cfg_profile -->
             <!-- is FFECNS -->
-            <param fluence_type="FLUENCE_DMIC" />
+            <param fluence_type="NONE" />
             <param execution_mode="ADSP" />
             <!-- lpi_mode: "NON_LPI_BARGE_IN", "NON_LPI", "LPI" -->
             <!-- NON_LPI_BARGE_IN: Default non-LPI mode type. lsm_usecase -->
@@ -215,7 +215,7 @@
             <param capture_device="HANDSET" />
             <!-- adm_cfg_profile should match with the one defined under adm_config -->
             <!-- Set it to NONE if LSM directly connects to AFE -->
-            <param adm_cfg_profile="DEFAULT" />
+            <param adm_cfg_profile="NONE" />
             <!-- fluence_type: "FLUENCE_MIC", "FLUENCE_DMIC", "FLUENCE_TMIC"   -->
             <!-- "FLUENCE_QMIC". Param value is valid when adm_cfg_profile -->
             <!-- is FFECNS -->
@@ -231,7 +231,7 @@
         </lsm_usecase>
         <lsm_usecase>
             <param capture_device="HEADSET" />
-            <param adm_cfg_profile="DEFAULT" />
+            <param adm_cfg_profile="NONE" />
             <param fluence_type="NONE" />
             <param execution_mode="ADSP" />
             <param app_type="4" /> <!-- app type for MD used in ACDB -->
@@ -254,6 +254,88 @@
     <!-- Google Hotword -->
     <sound_model_config>
         <param vendor_uuid="7038ddc8-30f2-11e6-b0ac-40a8f03d3f15" />
+        <param get_module_version="true" />
+        <param execution_type="ADSP" />
+        <param max_ape_phrases="1" />
+        <param max_ape_users="1" />
+        <!-- Profile specific data which the algorithm can support -->
+        <param sample_rate="16000" />
+        <param bit_width="16" />
+        <param out_channels="1"/> <!-- Module output channels -->
+        <param dam_token_id="1" />
+
+        <lsm_usecase>
+            <param capture_device="HANDSET" />
+            <!-- adm_cfg_profile should match with the one defined under adm_config -->
+            <!-- Set it to NONE if LSM directly connects to AFE -->
+            <param adm_cfg_profile="FFECNS" />
+            <!-- fluence_type: "FLUENCE_MIC", "FLUENCE_DMIC", "FLUENCE_TMIC"   -->
+            <!-- "FLUENCE_QMIC". Param value is valid when adm_cfg_profile -->
+            <!-- is FFECNS -->
+            <param fluence_type="FLUENCE_MIC" />
+            <param execution_mode="ADSP" />
+            <param lpi_mode="NON_LPI_BARGE_IN" />
+            <param app_type="3" /> <!-- app type used in ACDB -->
+            <param in_channels="1"/> <!-- Module input channels -->
+            <param load_sound_model_ids="0x18000001, 0x0, 0x00012C14" />
+            <param unload_sound_model_ids="0x18000001, 0x0, 0x00012C15" />
+            <param confidence_levels_ids="0x18000001, 0x0, 0x00012C07" />
+            <param operation_mode_ids="0x18000001, 0x0, 0x00012C02" />
+            <param polling_enable_ids="0x18000001, 0x0, 0x00012C1B" />
+            <param custom_config_ids="0x18000001, 0x0, 0x00012C20" />
+            <param lab_dam_cfg_ids="0x00012C08, 0x0, 0x000102C4" />
+            <param version_ids="0x18000001, 0x0, 0x18000101" />
+        </lsm_usecase>
+        <lsm_usecase>
+            <param capture_device="HANDSET" />
+            <!-- adm_cfg_profile should match with the one defined under adm_config -->
+            <!-- Set it to NONE if LSM directly connects to AFE -->
+            <param adm_cfg_profile="NONE" />
+            <!-- fluence_type: "FLUENCE_MIC", "FLUENCE_DMIC", "FLUENCE_TMIC"   -->
+            <!-- "FLUENCE_QMIC". Param value is valid when adm_cfg_profile -->
+            <!-- is FFECNS -->
+            <param fluence_type="FLUENCE_MIC" />
+            <param execution_mode="ADSP" />
+            <param lpi_mode="LPI" />
+            <param app_type="3" /> <!-- app type used in ACDB -->
+            <param in_channels="1"/> <!-- Module input channels -->
+            <param load_sound_model_ids="0x18000001, 0x0, 0x00012C14" />
+            <param unload_sound_model_ids="0x18000001, 0x0, 0x00012C15" />
+            <param confidence_levels_ids="0x18000001, 0x0, 0x00012C07" />
+            <param operation_mode_ids="0x18000001, 0x0, 0x00012C02" />
+            <param polling_enable_ids="0x18000001, 0x0, 0x00012C1B" />
+            <param custom_config_ids="0x18000001, 0x0, 0x00012C20" />
+            <param lab_dam_cfg_ids="0x00012C08, 0x0, 0x000102C4" />
+            <param version_ids="0x18000001, 0x0, 0x18000101" />
+        </lsm_usecase>
+        <lsm_usecase>
+            <param capture_device="HEADSET" />
+            <param adm_cfg_profile="NONE" />
+            <param fluence_type="NONE" />
+            <param execution_mode="ADSP" />
+            <param app_type="3" /> <!-- app type used in ACDB -->
+            <param in_channels="1"/> <!-- Module input channels -->
+            <param load_sound_model_ids="0x18000001, 0x0, 0x00012C14" />
+            <param unload_sound_model_ids="0x18000001, 0x0, 0x00012C15" />
+            <param confidence_levels_ids="0x18000001, 0x0, 0x00012C07" />
+            <param operation_mode_ids="0x18000001, 0x0, 0x00012C02" />
+            <param polling_enable_ids="0x18000001, 0x0, 0x00012C1B" />
+            <param custom_config_ids="0x18000001, 0x0, 0x00012C20" />
+            <param lab_dam_cfg_ids="0x00012C08, 0x0, 0x000102C4" />
+            <param version_ids="0x18000001, 0x0, 0x18000101" />
+        </lsm_usecase>
+
+        <!-- format: "ADPCM_packet" or "PCM_packet" !-->
+        <!-- transfer_mode: "FTRT" or "RT" -->
+        <!--  kw_duration is in milli seconds. It is valid only for FTRT
+            transfer mode -->
+        <param capture_keyword="PCM_raw, FTRT, 2000" />
+        <param client_capture_read_delay="2000" />
+    </sound_model_config>
+
+    <!-- Google Music Detection -->
+    <sound_model_config>
+        <param vendor_uuid="9f6ad62a-1f0b-11e7-87c5-40a8f03d3f15" />
         <param execution_type="ADSP" />
         <param max_ape_phrases="1" />
         <param max_ape_users="1" />
@@ -282,59 +364,7 @@
         </lsm_usecase>
         <lsm_usecase>
             <param capture_device="HEADSET" />
-            <param adm_cfg_profile="DEFAULT" />
-            <param fluence_type="NONE" />
-            <param execution_mode="ADSP" />
-            <param app_type="3" /> <!-- app type used in ACDB -->
-            <param in_channels="1"/> <!-- Module input channels -->
-            <param load_sound_model_ids="0x18000001, 0x0, 0x00012C14" />
-            <param unload_sound_model_ids="0x18000001, 0x0, 0x00012C15" />
-            <param confidence_levels_ids="0x18000001, 0x0, 0x00012C07" />
-            <param operation_mode_ids="0x18000001, 0x0, 0x00012C02" />
-            <param polling_enable_ids="0x18000001, 0x0, 0x00012C1B" />
-            <param custom_config_ids="0x18000001, 0x0, 0x00012C20" />
-        </lsm_usecase>
-
-        <!-- format: "ADPCM_packet" or "PCM_packet" !-->
-        <!-- transfer_mode: "FTRT" or "RT" -->
-        <!--  kw_duration is in milli seconds. It is valid only for FTRT
-            transfer mode -->
-        <param capture_keyword="PCM_raw, FTRT, 2000" />
-        <param client_capture_read_delay="2000" />
-    </sound_model_config>
-
-    <!-- Google Music Detection -->
-    <sound_model_config>
-        <param vendor_uuid="9f6ad62a-1f0b-11e7-87c5-40a8f03d3f15" />
-        <param execution_type="ADSP" />
-        <param max_ape_phrases="1" />
-        <param max_ape_users="1" />
-        <!-- Profile specific data which the algorithm can support -->
-        <param sample_rate="16000" />
-        <param bit_width="16" />
-        <param out_channels="1"/> <!-- Module output channels -->
-        <lsm_usecase>
-            <param capture_device="HANDSET" />
-            <!-- adm_cfg_profile should match with the one defined under adm_config -->
-            <!-- Set it to NONE if LSM directly connects to AFE -->
-            <param adm_cfg_profile="DEFAULT" />
-            <!-- fluence_type: "FLUENCE_MIC", "FLUENCE_DMIC", "FLUENCE_TMIC"   -->
-            <!-- "FLUENCE_QMIC". Param value is valid when adm_cfg_profile -->
-            <!-- is FFECNS -->
-            <param fluence_type="NONE" />
-            <param execution_mode="ADSP" />
-            <param app_type="3" /> <!-- app type used in ACDB -->
-            <param in_channels="1"/> <!-- Module input channels -->
-            <param load_sound_model_ids="0x18000001, 0x0, 0x00012C14" />
-            <param unload_sound_model_ids="0x18000001, 0x0, 0x00012C15" />
-            <param confidence_levels_ids="0x18000001, 0x0, 0x00012C07" />
-            <param operation_mode_ids="0x18000001, 0x0, 0x00012C02" />
-            <param polling_enable_ids="0x18000001, 0x0, 0x00012C1B" />
-            <param custom_config_ids="0x18000001, 0x0, 0x00012C20" />
-        </lsm_usecase>
-        <lsm_usecase>
-            <param capture_device="HEADSET" />
-            <param adm_cfg_profile="DEFAULT" />
+            <param adm_cfg_profile="NONE" />
             <param fluence_type="NONE" />
             <param execution_mode="ADSP" />
             <param app_type="3" /> <!-- app type used in ACDB -->
@@ -360,14 +390,6 @@
     <adm_config>
         <param adm_cfg_profile="FFECNS" />
         <param app_type="69947" />
-        <param sample_rate="16000" />
-        <param bit_width="16" />
-        <param out_channels="1"/>
-    </adm_config>
-
-    <adm_config>
-        <param adm_cfg_profile="DEFAULT" />
-        <param app_type="69938" />
         <param sample_rate="16000" />
         <param bit_width="16" />
         <param out_channels="1"/>
