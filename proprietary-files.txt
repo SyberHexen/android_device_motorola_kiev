@@ -180,14 +180,6 @@ vendor/etc/hdr_tm_config.xml
 vendor/etc/qdcm_calib_data_mipi_mot_video_csot_ft8756_666_1080p.xml
 vendor/etc/qdcm_calib_data_mipi_mot_video_tm_ft8756_666_1080p.xml
 
-# Fingerprint (chipone)
-vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service-chipone
-vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service-chipone2.rc
-vendor/lib64/hw/chipone.fingerprint.default.so
-vendor/lib64/libfp_ext_svc2.so
-vendor/lib64/libfptcmd.so
-vendor/lib64/vendor.fpsensor.hardware.fpsensorhidlsvc@2.0.so
-
 # Fingerprint (egistec)
 vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service-ets
 vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service-ets2.rc
