@@ -186,6 +186,7 @@ vendor/bin/charge_only_mode
 
 # Display (HDR)
 vendor/etc/hdr_tm_config.xml
+vendor/etc/display/advanced_sf_offsets.xml
 
 # Display (Calibration Data)
 vendor/etc/qdcm_calib_data_mipi_mot_video_csot_ft8756_666_1080p.xml
@@ -216,6 +217,9 @@ vendor/firmware/lagoon_ipa_fws.mdt
 # Listen
 vendor/lib/hw/sound_trigger.primary.lito.so
 vendor/lib64/hw/sound_trigger.primary.lito.so
+
+# Media
+vendor/etc/media_lagoon/video_system_specs.json
 
 # NFC
 vendor/lib64/libpn557_fw.so
@@ -259,7 +263,6 @@ vendor/etc/sensors/config/sns_tilt.json
 vendor/etc/sensors/config/sns_tilt_sw_enabled.json
 vendor/etc/sensors/config/sns_tilt_to_wake.json
 vendor/etc/sensors/config/tmd2755_0.json
-vendor/etc/sensors/config/tmd2755_0_dvt1.json
 vendor/etc/sensors/hals.conf
 vendor/etc/sensors/sns_reg_config
 vendor/lib/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so
