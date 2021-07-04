@@ -224,7 +224,15 @@ vendor/lib64/libpn557_fw.so
 vendor/etc/vhw.xml
 
 # Sensors
+vendor/bin/hw/vendor.qti.hardware.sensorscalibrate@1.0-service
 vendor/bin/capsense_reset
+vendor/bin/sensors.qti
+vendor/bin/sscrpcd
+vendor/etc/init/vendor.qti.hardware.sensorscalibrate@1.0-service.rc
+vendor/etc/init/init.vendor.sensors.rc
+vendor/etc/init/vendor.sensors.qti.rc
+vendor/etc/init/vendor.sensors.sscrpcd.rc
+vendor/etc/permissions/vendor-qti-hardware-sensorscalibrate.xml
 vendor/etc/sensors/config/bmp380.json
 vendor/etc/sensors/config/default_sensors.json
 vendor/etc/sensors/config/dynamic_sensors.json
@@ -254,8 +262,21 @@ vendor/etc/sensors/config/tmd2755_0.json
 vendor/etc/sensors/config/tmd2755_0_dvt1.json
 vendor/etc/sensors/hals.conf
 vendor/etc/sensors/sns_reg_config
+vendor/lib/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so
+vendor/lib/libsensorcal.so
+vendor/lib/libsensorslog.so
+vendor/lib/libssc.so
+vendor/lib/libssc_default_listener.so
+vendor/lib/vendor.qti.hardware.sensorscalibrate@1.0.so
+vendor/lib64/hw/vendor.qti.hardware.sensorscalibrate@1.0-impl.so
+vendor/lib64/libadspd.so
+vendor/lib64/libsensorcal.so
+vendor/lib64/libsensorslog.so
+vendor/lib64/libssc.so
+vendor/lib64/libssc_default_listener.so
 vendor/lib64/sensors.moto.so
 vendor/lib64/sensors.ssc.so
+vendor/lib64/vendor.qti.hardware.sensorscalibrate@1.0.so
 
 # Thermal
 vendor/etc/thermal-engine-kiev.conf
