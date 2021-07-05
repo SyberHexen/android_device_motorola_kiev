@@ -98,6 +98,15 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/nfc_calibration.txt:$(TARGET_COPY_OUT_VENDOR)/etc/nfc_calibration.txt \
     $(LOCAL_PATH)/nfc/nfc_calibration.txt:$(TARGET_COPY_OUT_VENDOR)/etc/sn100u_pnx_ese_cplc.pnscr
 
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power@1.3-service.sm7225-libperfmgr
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/power-libperfmgr/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(LOCAL_PATH) \
+    hardware/google/interfaces \
+    hardware/google/pixel
