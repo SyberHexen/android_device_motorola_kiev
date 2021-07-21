@@ -22,5 +22,5 @@
     <dimen name="status_bar_height">112.0px</dimen>
     <dimen name="status_bar_height_landscape">24.0dip</dimen>
     <dimen name="status_bar_height_portrait">112.0px</dimen>
-
+    <dimen name="status_bar_padding_top_portrait">16.0px</dimen>
 </resources>

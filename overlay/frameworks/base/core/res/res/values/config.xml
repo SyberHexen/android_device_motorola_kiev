@@ -19,6 +19,10 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Flag indicating whether we should enable the automatic brightness.
+         Software implementation will be used if config_hardware_auto_brightness_available is not set -->
+    <bool name="config_automatic_brightness_available">true</bool>
+
     <!-- Array of light sensor lux values to define our levels for auto backlight brightness support.
          The N entries of this array define N + 1 control points as follows:
          (1-based arrays)
@@ -82,12 +86,36 @@
         <item>130</item>
         <item>150</item>
         <item>180</item>
-        <item>240</item>
-        <item>265</item>
+        <item>180</item>
+        <item>180</item>
+        <item>180</item>
+        <item>225</item>
+        <item>270</item>
+        <item>300</item>
+        <item>315</item>
+        <item>330</item>
         <item>380</item>
         <item>420</item>
         <item>490</item>
+        <item>490</item>
+        <item>490</item>
     </array>
+
+    <!-- Array of output values for LCD backlight corresponding to the lux values
+         in the config_autoBrightnessLevels array.  This array should have size one greater
+         than the size of the config_autoBrightnessLevels array.
+         The brightness values must be between 0 and 255 and be non-decreasing.
+         This must be overridden in platform specific overlays -->
+    <integer-array name="config_autoBrightnessLcdBacklightValues">
+        <item>10</item>
+        <item>20</item>
+        <item>40</item>
+        <item>70</item>
+        <item>110</item>
+        <item>160</item>
+        <item>200</item>
+        <item>255</item>
+    </integer-array>
 
     <!-- An array of floats describing the screen brightness in nits corresponding to the backlight
          values in the config_screenBrightnessBacklight array.  On OLED displays these  values
@@ -107,11 +135,14 @@
         <item>130</item>
         <item>150</item>
         <item>180</item>
-        <item>240</item>
-        <item>265</item>
+        <item>225</item>
+        <item>270</item>
+        <item>300</item>
+        <item>315</item>
+        <item>330</item>
         <item>380</item>
         <item>420</item>
-        <item>490</item>
+        <item>465</item>
     </array>
 
     <!-- An array describing the screen's backlight values corresponding to the brightness
@@ -129,11 +160,20 @@
         <item>67</item>
         <item>78</item>
         <item>93</item>
-        <item>125</item>
-        <item>138</item>
+        <item>117</item>
+        <item>140</item>
+        <item>156</item>
+        <item>163</item>
+        <item>171</item>
         <item>197</item>
         <item>218</item>
         <item>255</item>
+    </integer-array>
+
+    <integer-array name="config_availableColorModes">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
     </integer-array>
 
     <!-- Screen brightness used to dim the screen when the user activity
@@ -155,6 +195,7 @@
          brightness changes occur in response to an observed change in light level that exceeds the
          hysteresis threshold. -->
     <integer name="config_autoBrightnessBrighteningLightDebounce">500</integer>
+    <integer name="config_autoBrightnessDarkeningLightDebounce">500</integer>
 
     <!-- Amount of time it takes for the light sensor to warm up in milliseconds.
          For this time after the screen turns on, the Power Manager
