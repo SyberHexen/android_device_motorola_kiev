@@ -15,3 +15,4 @@ allow init_fingerprint vendor_toolbox_exec:file rx_file_perms;
 
 get_prop(init_fingerprint, moto_boot_prop)
 set_prop(init_fingerprint, moto_fingerprint_prop)
+set_prop(init_fingerprint, vendor_mot_fingerprint_prop)

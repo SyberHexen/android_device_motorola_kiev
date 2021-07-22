@@ -1,0 +1,1 @@
+allow ueventd etsd_device:chr_file create;

@@ -1,2 +1,6 @@
 # Lights
 genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-05/c440000.qcom,spmi:qcom,pm6150l@5:qcom,leds@d000/leds/charging               u:object_r:sysfs_leds:s0
+
+# Fingerprint
+genfscon sysfs /devices/platform/egis_input/navigation_enable       u:object_r:sysfs_ets:s0
+genfscon sysfs /devices/platform/egis_input/navigation_event        u:object_r:sysfs_ets:s0

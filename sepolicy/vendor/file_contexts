@@ -2,11 +2,14 @@
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service-ets                     u:object_r:hal_fingerprint_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.lights-service\.kiev                                         u:object_r:hal_light_default_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.light@2\.0-service\.kiev                                     u:object_r:hal_light_default_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.power@1\.3-service\.sm7225-libperfmgr                        u:object_r:hal_power_default_exec:s0
 
 # Fingerprint
-/dev/fpsensor                   u:object_r:fingerprint_device:s0
-/data/vendor/fpc(/.*)?          u:object_r:fingerprint_vendor_data_file:s0
-/data/vendor/.fps(/.*)?         u:object_r:fingerprint_vendor_data_file:s0
+/dev/esfp0                             u:object_r:etsd_device:s0
+/dev/fpsensor                          u:object_r:fingerprint_device:s0
+/data/vendor/fpc(/.*)?                 u:object_r:fingerprint_vendor_data_file:s0
+/data/vendor/.fps(/.*)?                u:object_r:fingerprint_vendor_data_file:s0
+/sys/devices/soc/0.et320/etspi_enable  u:object_r:sysfs_ets:s0
 
 /(vendor|system/vendor)/bin/init\.mmi\.charge\.sh               u:object_r:qti_init_shell_exec:s0
 /(vendor|system/vendor)/bin/init\.oem\.fingerprint\.sh          u:object_r:init_fingerprint_exec:s0

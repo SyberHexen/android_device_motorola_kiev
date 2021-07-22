@@ -1,7 +1,13 @@
 allow hal_fingerprint_default {
   fingerprint_device
   tee_device
-}: chr_file rw_file_perms;
+  etsd_device
+}: chr_file { getattr rw_file_perms };
 
 allow hal_fingerprint_default self:netlink_socket create_socket_perms_no_ioctl;
 r_dir_file(hal_fingerprint_default, firmware_file)
+allow hal_fingerprint_default property_socket:sock_file write;
+allow hal_fingerprint_default sysfs:file write;
+allow hal_fingerprint_default init:unix_stream_socket connectto;
+allow hal_fingerprint_default sysfs_ets:file rw_file_perms;
+allow hal_fingerprint_default vendor_mot_fingerprint_prop:property_service set;

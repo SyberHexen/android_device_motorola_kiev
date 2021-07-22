@@ -7,5 +7,9 @@
             <name>IMotoFingerPrint</name>
             <instance>default</instance>
         </interface>
+        <interface>
+            <name>IMotoFingerPrintSensorTest</name>
+            <instance>default</instance>
+        </interface>
     </hal>
 </manifest>

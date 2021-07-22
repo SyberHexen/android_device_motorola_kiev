@@ -1,0 +1,3 @@
+# Fingerprint
+type sysfs_ets, sysfs_type, fs_type;
+type etsd_device, sysfs_type, fs_type;
