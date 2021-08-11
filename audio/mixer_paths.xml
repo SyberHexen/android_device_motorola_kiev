@@ -314,24 +314,24 @@
     <ctl name="TX SMIC MUX7" value="ZERO" />
 
     <!-- Volume controls -->
-    <ctl name="RX_RX0 Digital Volume" value="84" />
-    <ctl name="RX_RX1 Digital Volume" value="84" />
-    <ctl name="RX_RX2 Digital Volume" value="84" />
-    <ctl name="HPHL Volume" value="20" />
-    <ctl name="HPHR Volume" value="20" />
+    <ctl name="RX_RX0 Digital Volume" value="90" />
+    <ctl name="RX_RX1 Digital Volume" value="90" />
+    <ctl name="RX_RX2 Digital Volume" value="90" />
+    <ctl name="HPHL Volume" value="25" />
+    <ctl name="HPHR Volume" value="25" />
 
     <ctl name="TX_DEC0 Volume" value="90" />
     <ctl name="TX_DEC1 Volume" value="90" />
     <ctl name="TX_DEC2 Volume" value="90" />
     <ctl name="TX_DEC3 Volume" value="90" />
-    <ctl name="TX_DEC4 Volume" value="84" />
-    <ctl name="TX_DEC5 Volume" value="84" />
-    <ctl name="TX_DEC6 Volume" value="84" />
-    <ctl name="TX_DEC7 Volume" value="84" />
+    <ctl name="TX_DEC4 Volume" value="90" />
+    <ctl name="TX_DEC5 Volume" value="90" />
+    <ctl name="TX_DEC6 Volume" value="90" />
+    <ctl name="TX_DEC7 Volume" value="90" />
 
-    <ctl name="ADC1 Volume" value="12" />
-    <ctl name="ADC2 Volume" value="12" />
-    <ctl name="ADC3 Volume" value="12" />
+    <ctl name="ADC1 Volume" value="15" />
+    <ctl name="ADC2 Volume" value="15" />
+    <ctl name="ADC3 Volume" value="15" />
 
     <!-- Headphone class-H mode  -->
     <ctl name="RX_HPH_PWR_MODE" value="ULP" />
@@ -1536,8 +1536,8 @@
 
     <path name="handset-mic">
         <path name="amic3" />
-        <ctl name="ADC2 Volume" value="8" />
-        <ctl name="TX_DEC2 Volume" value="84" />
+        <ctl name="ADC2 Volume" value="18" />
+        <ctl name="TX_DEC2 Volume" value="90" />
     </path>
 
     <path name="headphones">
@@ -1561,15 +1561,15 @@
     </path>
 
     <path name="headset-mic">
-        <ctl name="ADC2 Volume" value="12" />
+        <ctl name="ADC2 Volume" value="18" />
         <ctl name="TX_DEC0 Volume" value="90" />
         <path name="amic2" />
     </path>
 
     <path name="external-mic">
         <path name="amic2" />
-        <ctl name="ADC2 Volume" value="8" />
-        <ctl name="TX_DEC0 Volume" value="84" />
+        <ctl name="ADC2 Volume" value="18" />
+        <ctl name="TX_DEC0 Volume" value="90" />
     </path>
 
     <path name="voice-handset">
@@ -1669,13 +1669,13 @@
     </path>
 
     <path name="spkr-gain-in-headphone-combo">
-        <ctl name="RX_RX0 Digital Volume" value="60" />
-        <ctl name="RX_RX1 Digital Volume" value="60" />
+        <ctl name="RX_RX0 Digital Volume" value="75" />
+        <ctl name="RX_RX1 Digital Volume" value="75" />
     </path>
 
     <path name="speaker-gain-default">
-        <ctl name="RX_RX0 Digital Volume" value="84" />
-        <ctl name="RX_RX1 Digital Volume" value="84" />
+        <ctl name="RX_RX0 Digital Volume" value="90" />
+        <ctl name="RX_RX1 Digital Volume" value="90" />
     </path>
 
     <path name="spkr-gain-in-line-combo">
@@ -1692,14 +1692,14 @@
 
     <path name="voice-rec-mic">
         <path name="speaker-mic" />
-        <ctl name="TX_DEC2 Volume" value="86" />
-        <ctl name="ADC2 Volume" value="15" />
+        <ctl name="TX_DEC2 Volume" value="90" />
+        <ctl name="ADC2 Volume" value="20" />
     </path>
 
     <path name="camcorder-mic">
         <path name="speaker-mic" />
-        <ctl name="ADC2 Volume" value="8" />
-        <ctl name="TX_DEC2 Volume" value="84" />
+        <ctl name="ADC2 Volume" value="18" />
+        <ctl name="TX_DEC2 Volume" value="90" />
     </path>
 
     <path name="bt-sco-headset">
@@ -1735,10 +1735,10 @@
     <!-- Dual MIC devices -->
     <path name="handset-dmic-endfire">
         <!-- main mic volume -->
-        <ctl name="ADC1 Volume" value="8" />
+        <ctl name="ADC1 Volume" value="18" />
         <ctl name="TX_DEC0 Volume" value="90" />
         <!-- ref mic volume -->
-        <ctl name="ADC2 Volume" value="8" />
+        <ctl name="ADC2 Volume" value="18" />
         <ctl name="TX_DEC1 Volume" value="90" />
         <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
         <ctl name="TX DEC0 MUX" value="SWR_MIC" />
@@ -1754,11 +1754,11 @@
 
     <path name="camcorder-mic-bf">
         <!-- main mic volume -->
-        <ctl name="ADC1 Volume" value="8" />
-        <ctl name="TX_DEC0 Volume" value="84" />
+        <ctl name="ADC1 Volume" value="18" />
+        <ctl name="TX_DEC0 Volume" value="90" />
         <!-- ref mic volume -->
-        <ctl name="ADC2 Volume" value="8" />
-        <ctl name="TX_DEC1 Volume" value="84" />
+        <ctl name="ADC2 Volume" value="18" />
+        <ctl name="TX_DEC1 Volume" value="90" />
         <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
         <ctl name="TX DEC0 MUX" value="SWR_MIC" />
         <ctl name="TX SMIC MUX0" value="ADC2" />
@@ -1773,11 +1773,11 @@
 
     <path name="camcorder-mic-bf-reverse">
         <!-- main mic volume -->
-        <ctl name="ADC1 Volume" value="8" />
-        <ctl name="TX_DEC0 Volume" value="84" />
+        <ctl name="ADC1 Volume" value="18" />
+        <ctl name="TX_DEC0 Volume" value="90" />
         <!-- ref mic volume -->
-        <ctl name="ADC2 Volume" value="8" />
-        <ctl name="TX_DEC1 Volume" value="84" />
+        <ctl name="ADC2 Volume" value="18" />
+        <ctl name="TX_DEC1 Volume" value="90" />
         <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
         <ctl name="TX DEC0 MUX" value="SWR_MIC" />
         <ctl name="TX SMIC MUX0" value="ADC0" />
@@ -1800,10 +1800,10 @@
     </path>
 
     <path name="dmic-endfire">
-        <ctl name="ADC1 Volume" value="8" />
-        <ctl name="TX_DEC0 Volume" value="84" />
-        <ctl name="ADC2 Volume" value="8" />
-        <ctl name="TX_DEC1 Volume" value="84" />
+        <ctl name="ADC1 Volume" value="18" />
+        <ctl name="TX_DEC0 Volume" value="90" />
+        <ctl name="ADC2 Volume" value="18" />
+        <ctl name="TX_DEC1 Volume" value="90" />
         <ctl name="TX_CDC_DMA_TX_3 Channels" value="Two" />
         <ctl name="TX DEC0 MUX" value="SWR_MIC" />
         <ctl name="TX SMIC MUX0" value="ADC0" />
@@ -1888,7 +1888,7 @@
         <ctl name="DEC0_BCS Switch" value="1" />
         <ctl name="ADC2_MIXER Switch" value="1" />
         <ctl name="ADC2 MUX" value="INP2" />
-        <ctl name="ADC2 Volume" value="8" />
+        <ctl name="ADC2 Volume" value="18" />
     </path>
 
     <path name="voice-tty-hco-headset-mic">
