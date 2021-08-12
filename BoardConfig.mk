@@ -58,5 +58,8 @@ ODM_MANIFEST_N_FILES := $(DEVICE_PATH)/odm/manifest_n.xml
 ODM_MANIFEST_NJ_FILES := $(DEVICE_PATH)/odm/manifest_nj.xml
 ODM_MANIFEST_NP_FILES := $(DEVICE_PATH)/odm/manifest_np.xml
 
+# Partitions
+BOARD_DTBOIMG_PARTITION_SIZE := 8388608
+
 # SELinux
 BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
