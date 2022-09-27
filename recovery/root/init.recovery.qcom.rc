@@ -39,6 +39,7 @@ on boot
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+    mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /firmware ro
     export LD_LIBRARY_PATH /sbin:/vendor/lib64:/vendor/lib64/hw
     setprop ro.board.platform lito
 
