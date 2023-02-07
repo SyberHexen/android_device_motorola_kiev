@@ -33,22 +33,18 @@ on early-init
 on init
     start load_modules
 
-on boot
+on late-fs
+    start keymasterd
     start health-hal-2-1
 
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
     mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /firmware ro
-    export LD_LIBRARY_PATH /sbin:/vendor/lib64:/vendor/lib64/hw
     setprop ro.board.platform lito
 
 on post-fs
     start boot-hal-1-1
-
-on property:ro.crypto.type=file
-    setprop ro.crypto.state encrypted
-    setprop twrp.apex.loaded true
 
 # Trigger for Touchscreen
 on property:crypto.ready=1 && property:hwservicemanager.ready=true
@@ -81,4 +77,16 @@ service fstab_fixup /system/bin/fstab_fixup.sh
     disabled
     user root
     group root
+    seclabel u:r:recovery:s0
+
+service keymasterd /system/bin/keymasterd
+     user root
+     group root
+     disabled
+     seclabel u:r:recovery:s0
+
+service health-hal-2-1 /system/bin/android.hardware.health@2.1-service
+    user root
+    group root
+    disabled
     seclabel u:r:recovery:s0
