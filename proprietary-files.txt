@@ -20,10 +20,6 @@ vendor/lib/libmotaudioutils.so
 vendor/lib/libtinycompress_vendor.so
 vendor/lib/vndk/libtinyalsa.so:vendor/lib/libtinyalsa-moto.so;FIX_SONAME
 
-# Audio - Soundfx
-vendor/lib/soundfx/libmmieffectswrapper.so
-vendor/lib/soundfx/libspeakerbundle.so
-
 # Camera
 vendor/lib64/camera/com.mot.eeprom.mot_dw9767_s5kgm1st_eeprom.so
 vendor/lib64/camera/com.mot.eeprom.mot_gt24p64b_ov02b10_eeprom.so

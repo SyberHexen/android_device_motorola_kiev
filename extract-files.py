@@ -63,7 +63,7 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib/hw/audio.primary.lito-moto.so': blob_fixup()
         .replace_needed('android.hardware.power-V1-ndk_platform.so', 'android.hardware.power-V1-ndk.so')
         .replace_needed('libtinyalsa.so', 'libtinyalsa-moto.so'),
-    ('vendor/lib/hw/sound_trigger.primary.lito.so', 'vendor/lib/soundfx/libmmieffectswrapper.so', 'vendor/lib/soundfx/libspeakerbundle.so'): blob_fixup()
+    'vendor/lib/hw/sound_trigger.primary.lito.so': blob_fixup()
         .replace_needed('libtinyalsa.so', 'libtinyalsa-moto.so'),
     ('vendor/lib64/com.qti.feature2.gs.so', 'vendor/lib64/com.qti.feature2.gs.bitra.so', 'vendor/lib64/hw/com.qti.chi.override.so', 'vendor/lib64/hw/com.qti.chi.override.bitra.so'): blob_fixup()
         .binary_regex_replace(b'camera.mot.is.coming.cts', b'vendor.camera.coming.cts'),
