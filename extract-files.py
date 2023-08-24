@@ -4,6 +4,8 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+from extract_utils.extract import extract_fns_user_type
+from extract_utils.extract_star import extract_star_firmware
 from extract_utils.fixups_blob import (
     BlobFixupCtx,
     File,
@@ -75,13 +77,18 @@ blob_fixups: blob_fixups_user_type = {
         .sig_replace('27 0B 00 94', '1F 20 03 D5'),
 }  # fmt: skip
 
+extract_fns: extract_fns_user_type = {
+    r'(bootloader|radio)\.img': extract_star_firmware,
+}
+
 module = ExtractUtilsModule(
     'kiev',
     'motorola',
     namespace_imports=namespace_imports,
     blob_fixups=blob_fixups,
+    extract_fns=extract_fns,
     lib_fixups=lib_fixups,
-    add_firmware_proprietary_file=False,
+    add_firmware_proprietary_file=True,
 )
 
 if __name__ == '__main__':
