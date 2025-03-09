@@ -14,12 +14,6 @@ vendor/etc/acdbdata/adsp_avs_config.acdb
 vendor/firmware/aw882xx_afe_params.bin
 vendor/firmware/aw882xx_spk_reg.bin
 
-# Audio - Prebuilt
-vendor/lib/hw/audio.primary.lito.so:vendor/lib/hw/audio.primary.lito-moto.so;FIX_SONAME
-vendor/lib/libmotaudioutils.so
-vendor/lib/libtinycompress_vendor.so
-vendor/lib/vndk/libtinyalsa.so:vendor/lib/libtinyalsa-moto.so;FIX_SONAME
-
 # Camera
 vendor/lib64/camera/com.mot.eeprom.mot_dw9767_s5kgm1st_eeprom.so
 vendor/lib64/camera/com.mot.eeprom.mot_gt24p64b_ov02b10_eeprom.so
@@ -197,9 +191,6 @@ product/priv-app/HotwordEnrollmentOKGoogleHEXAGON/HotwordEnrollmentOKGoogleHEXAG
 product/priv-app/HotwordEnrollmentXGoogleHEXAGON/HotwordEnrollmentXGoogleHEXAGON.apk
 system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
 system_ext/framework/com.android.hotwordenrollment.common.util.jar
-
-# Listen
-vendor/lib/hw/sound_trigger.primary.lito.so
 
 # Media configs
 vendor/etc/media_lagoon/video_system_specs.json
