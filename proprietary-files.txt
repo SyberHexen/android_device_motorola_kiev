@@ -195,35 +195,6 @@ system_ext/framework/com.android.hotwordenrollment.common.util.jar
 # Media configs
 vendor/etc/media_lagoon/video_system_specs.json
 
-# MotCamera3
-product/app/MotCamera2AI/MotCamera2AI.apk;PRESIGNED
-product/etc/init/init.motcamera3.lens.rc
-product/etc/permissions/com.motorola.camera2.content.ai.xml
-product/etc/permissions/com.motorola.camera3.lens.xml
-product/etc/permissions/com.motorola.camera3.xml
-product/etc/permissions/deviceowner-configuration-com.motorola.camera3.xml
-product/etc/permissions/privapp-permissions-com.motorola.camera3.xml
-product/etc/sysconfig/hiddenapi-whitelist-com.motorola.camera3.xml
-product/priv-app/MotCamera3/MotCamera3.apk|77fa27ea0fa7fa4daf9f5e4ad4092312e717d2f7
-system/app/MotoSignatureApp/MotoSignatureApp.apk;PRESIGNED
-system/etc/permissions/com.motorola.frameworks.core.addon.xml
-system/etc/permissions/com.motorola.motosignature.xml
-system/etc/permissions/moto-checkin.xml
-system/etc/permissions/moto-core_services.xml
-system/etc/permissions/moto-settings.xml
-system/framework/com.motorola.frameworks.core.addon.jar
-system/framework/com.motorola.motosignature.jar
-system/framework/moto-checkin.jar
-system/framework/moto-core_services.jar
-system/framework/moto-settings.jar
-system_ext/bin/motsettings
-system_ext/etc/permissions/com.motorola.androidx.camera.extensions.xml
-system_ext/etc/public.libraries-motocamera.txt
-system_ext/framework/com.motorola.androidx.camera.extensions.jar
-system_ext/lib/libmcf_native_window_helper.motocamera.so
-system_ext/lib64/libmcf_native_window_helper.motocamera.so
-system_ext/priv-app/MotorolaSettingsProvider/MotorolaSettingsProvider.apk
-
 # Moto Permissions
 product/etc/permissions/com.motorola.camera2.content.ai.xml:vendor/etc/permissions/com.motorola.camera2.content.ai.xml
 product/etc/permissions/com.motorola.camera3.kiev.xml:vendor/etc/permissions/com.motorola.camera3.kiev.xml
