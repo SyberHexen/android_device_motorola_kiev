@@ -1747,6 +1747,10 @@
         <ctl name="HPHR_RDAC Switch" value="1" />
     </path>
 
+    <path name="hph-class-ab-mode">
+        <ctl name="RX HPH Mode" value="CLS_AB" />
+    </path>
+
     <path name="line">
         <path name="headphones" />
     </path>
