@@ -9,10 +9,6 @@ include device/motorola/sm7250-common/BoardConfigCommon.mk
 DEVICE_PATH := device/motorola/kiev
 
 # Audio
-AUDIO_FEATURE_ENABLED_A2DP_OFFLOAD := true
-AUDIO_FEATURE_ENABLED_AHAL_EXT := false
-
-# Audio
 AUDIO_FEATURE_ENABLED_EXT_AMPLIFIER := true
 AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT := true
 BOARD_SUPPORTS_OPENSOURCE_STHAL := true
